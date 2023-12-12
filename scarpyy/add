@@ -1,0 +1,23 @@
+import os
+import json
+
+# JSON dosyalarının bulunduğu dizin
+dizin = "path/to/your/directory"
+
+# Tüm JSON dosyalarını listele
+json_dosyalari = [dosya for dosya in os.listdir(dizin) if dosya.endswith('.json')]
+
+# Verileri birleştirmek için boş bir liste
+birlesik_veri = []
+
+# Her JSON dosyasını oku ve verileri birleştir
+for dosya in json_dosyalari:
+    with open(os.path.join(dizin, dosya), 'r') as f:
+        data = json.load(f)
+        birlesik_veri.append(data) # veya data'nızı nasıl birleştirmek istediğinize bağlı olarak uygun bir şekilde birleştirin
+
+# Birleştirilmiş veriyi yeni bir JSON dosyasına yaz
+with open('birlesik_veri.json', 'w') as f:
+    json.dump(birlesik_veri, f)
+https://drive.google.com/file/d/1KgJLjb9wDdX3gjFhtUWXTAsWgtxipwHl/view?usp=sharing
+https://drive.google.com/file/d/18G0G0NVPOuxv8otyoiktwil-H2jgsGfs/view?usp=sharing
